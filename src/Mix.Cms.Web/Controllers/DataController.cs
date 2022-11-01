@@ -39,14 +39,7 @@ namespace Mix.Cms.Web.Controllers
         [Route("{culture}/data/{mixDatabaseName}/{seoName}")]
         public async Task<IActionResult> Index(string mixDatabaseName, string seoName)
         {
-            if (isValid)
-            {
-                return await Data(mixDatabaseName, seoName);
-            }
-            else
-            {
-                return Redirect(_redirectUrl);
-            }
+            return isValid ? await Data(mixDatabaseName, seoName) : Redirect(_redirectUrl);
         }
 
         #endregion Routes
